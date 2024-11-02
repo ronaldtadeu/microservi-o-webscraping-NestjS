@@ -30,35 +30,70 @@ O sistema é composto por duas partes principais:
 Abaixo está uma pré-visualização das pastas do projeto e suas respectivas funções:
 
 ```
-/microserviço-webscraping-NestjS
-├── /dist                # Diretório gerado após a compilação do TypeScript.
-├── /node_modules        # Dependências do projeto instaladas pelo npm.
-├── /src                 # Código-fonte da aplicação.
-│   ├── /puppeteer       # Contém o serviço de scraping e controlador relacionados ao Puppeteer.
-│   │   ├── puppeteer.controller.ts    # Controlador responsável por gerenciar as rotas de scraping.
-│   │   └── puppeteer.service.ts       # Serviço que utiliza o Puppeteer para realizar o scraping.
-│   ├── /user            # Contém o microserviço de gerenciamento de usuários.
-│   │   ├── user.controller.ts          # Controlador que gerencia as rotas de usuários.
-│   │   └── user.service.ts             # Serviço que contém a lógica para criação e gerenciamento de usuários.
-├── /test                 # Testes automatizados da aplicação.
-├── .eslintrc.js         # Configurações do ESLint para linting do código.
-├── .gitignore           # Arquivo que especifica quais arquivos ou pastas devem ser ignorados pelo Git.
-├── .prettierrc          # Configurações do Prettier para formatação de código.
-├── nest-cli.json        # Configurações do Nest CLI.
-├── package.json         # Informações do projeto e dependências.
-├── package-lock.json    # Lockfile do npm que garante a instalação das dependências corretas.
-└── tsconfig.json        # Configurações do TypeScript.
+microserviço-webscraping-NestjS
+├── puppeteer-service             # Serviço de scraping que utiliza o Puppeteer.
+│   ├── .eslintrc.js              # Configurações do ESLint para linting do código.
+│   ├── .gitignore                # Arquivo que especifica quais arquivos ou pastas devem ser ignorados pelo Git.
+│   ├── .prettierrc               # Configurações do Prettier para formatação de código.
+│   ├── nest-cli.json             # Configurações do Nest CLI.
+│   ├── package.json              # Informações do projeto e dependências.
+│   ├── package-lock.json         # Lockfile do npm que garante a instalação das dependências corretas.
+│   ├── README.md                 # Documentação do serviço Puppeteer.
+│   ├── tsconfig.build.json       # Configurações para build do TypeScript.
+│   ├── tsconfig.json             # Configurações do TypeScript.
+│   ├── dist                      # Diretório gerado após a compilação do TypeScript.
+│   ├── node_modules              # Dependências do projeto instaladas pelo npm.
+│   ├── src                       # Código-fonte do serviço.
+│   └── test                      # Testes automatizados do serviço.
+└── user-service                  # Microserviço para gerenciamento de usuários.
+    ├── .eslintrc.js              # Configurações do ESLint para linting do código.
+    ├── .gitignore                # Arquivo que especifica quais arquivos ou pastas devem ser ignorados pelo Git.
+    ├── .prettierrc               # Configurações do Prettier para formatação de código.
+    ├── nest-cli.json             # Configurações do Nest CLI.
+    ├── package.json              # Informações do projeto e dependências.
+    ├── package-lock.json         # Lockfile do npm que garante a instalação das dependências corretas.
+    ├── README.md                 # Documentação do serviço de usuários.
+    ├── tsconfig.build.json       # Configurações para build do TypeScript.
+    ├── tsconfig.json             # Configurações do TypeScript.
+    ├── dist                      # Diretório gerado após a compilação do TypeScript.
+    ├── node_modules              # Dependências do projeto instaladas pelo npm.
+    ├── src                       # Código-fonte do serviço de usuários.
+    └── test                      # Testes automatizados do serviço de usuários.
+
+microserviço-webscraping-NestjS\.gitattributes  # Arquivo que define atributos de controle de versão.
+microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ```
 
 ### Descrição das Pastas
 
-- **`/dist`**: Este diretório é gerado após a compilação do código TypeScript e contém os arquivos JavaScript que podem ser executados.
-- **`/node_modules`**: Contém todas as dependências e pacotes instalados através do npm.
-- **`/src`**: A pasta principal onde reside o código-fonte do projeto, dividido em módulos para organização.
-  - **`/puppeteer`**: Inclui o controlador e o serviço para realizar operações de scraping utilizando o Puppeteer.
-  - **`/user`**: Contém o controlador e o serviço para o gerenciamento de usuários.
-- **`/test`**: Contém os arquivos de teste automatizados que garantem a funcionalidade do serviço.
-- **Arquivos de configuração**: Incluem configurações para linting, formatação, dependências e a CLI do Nest.
+- **`/puppeteer-service`**: Contém todos os arquivos e pastas relacionados ao serviço de scraping utilizando o Puppeteer.
+  - **`/dist`**: Este diretório é gerado após a compilação do código TypeScript e contém os arquivos JavaScript que podem ser executados.
+  - **`/node_modules`**: Contém todas as dependências e pacotes instalados através do npm.
+  - **`/src`**: A pasta principal onde reside o código-fonte do serviço Puppeteer.
+  - **`/test`**: Contém os arquivos de teste automatizados que garantem a funcionalidade do serviço.
+  - **`.eslintrc.js`**: Configurações do ESLint para linting do código.
+  - **`.gitignore`**: Arquivo que especifica quais arquivos ou pastas devem ser ignorados pelo Git.
+  - **`.prettierrc`**: Configurações do Prettier para formatação de código.
+  - **`nest-cli.json`**: Configurações do Nest CLI.
+  - **`package.json`**: Informações do projeto e dependências.
+  - **`package-lock.json`**: Lockfile do npm que garante a instalação das dependências corretas.
+  - **`tsconfig.build.json`**: Configurações do TypeScript para a construção do projeto.
+  - **`tsconfig.json`**: Configurações do TypeScript.
+
+- **`/user-service`**: Contém todos os arquivos e pastas relacionados ao microserviço de gerenciamento de usuários.
+  - **`/dist`**: Este diretório é gerado após a compilação do código TypeScript e contém os arquivos JavaScript que podem ser executados.
+  - **`/node_modules`**: Contém todas as dependências e pacotes instalados através do npm.
+  - **`/src`**: A pasta principal onde reside o código-fonte do serviço de usuários.
+  - **`/test`**: Contém os arquivos de teste automatizados que garantem a funcionalidade do serviço.
+  - **`.eslintrc.js`**: Configurações do ESLint para linting do código.
+  - **`.gitignore`**: Arquivo que especifica quais arquivos ou pastas devem ser ignorados pelo Git.
+  - **`.prettierrc`**: Configurações do Prettier para formatação de código.
+  - **`nest-cli.json`**: Configurações do Nest CLI.
+  - **`package.json`**: Informações do projeto e dependências.
+  - **`package-lock.json`**: Lockfile do npm que garante a instalação das dependências corretas.
+  - **`tsconfig.build.json`**: Configurações do TypeScript para a construção do projeto.
+  - **`tsconfig.json`**: Configurações do TypeScript.
+
 
 ## Instruções de Deploy
 
