@@ -126,6 +126,45 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ### Rota de Scraping
 - **GET** `/scrape/product`: Retorna todos os produtos, o mais caro e o mais barato da página de produtos.
 
+    - **form-data**
+```json
+{
+    "name": "teste",
+    "password": "teste"
+}
+```
+    - **response return**
+```json
+{
+    "products": [
+        {
+            "name": "Sauce Labs Backpack",
+            "price": 29.99
+        },
+        {
+            "name": "Sauce Labs Fleece Jacket",
+            "price": 49.99
+        },
+        {
+            "name": "Sauce Labs Onesie",
+            "price": 7.99
+        },
+        {
+            "name": "Test.allTheThings() T-Shirt (Red)",
+            "price": 15.99
+        }
+    ],
+    "mostExpensiveProduct": {
+        "name": "Sauce Labs Fleece Jacket",
+        "price": 49.99
+    },
+    "cheapestProduct": {
+        "name": "Sauce Labs Onesie",
+        "price": 7.99
+    }
+}
+```
+
 ### Rota de Usuários
 - **POST** `/users`: Cria um novo usuário.
 
@@ -173,7 +212,7 @@ null
 ```json
 null
 ```
-- - **response return**
+    - **response return**
 ```json
     {
         "_id": "67255cb0b132b989883ef7d7",
