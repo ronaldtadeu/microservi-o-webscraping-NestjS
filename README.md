@@ -147,9 +147,57 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ```
 
 - **GET** `/users/`: Lista os usuários.
+- - **form-data**
+```
+null
+```
+- - **response return**
+```
+[
+    {
+        "_id": "67255cb0b132b989883ef7d7",
+        "name": "John Doe",
+        "password": "securepassword"
+    },
+    {
+        "_id": "67269064413c64e3e64f54cb",
+        "name": "standard_user",
+        "password": "secret_sauce",
+        "__v": 0
+    }
+]
+```
 - **GET** `/users/:id`: Lista o usuário pelo id.
+- - **form-data**
+```
+null
+```
+- - **response return**
+```
+    {
+        "_id": "67255cb0b132b989883ef7d7",
+        "name": "John Doe",
+        "password": "securepassword"
+    },
+```
 - **DELETE** `/users/:id`: Exclui o usuário pelo id.
 - **PUT** `/users/:id`: Edita o usuário pelo id.
+- - **form-data**
+```
+{
+    "name": "teste1",
+    "password": "teste1"
+}
+```
+- - **response return**
+```
+{
+    "name": "teste1",
+    "password": "teste1",
+    "_id": "67269064413c64e3e64f54cb",
+    "__v": 0
+}
+```
 
 ### Exemplo de Uso
 
