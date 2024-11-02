@@ -133,7 +133,7 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
     "password": "teste"
 }
 ```
-    - **response return**
+   - **response return**
 ```json
 {
     "products": [
@@ -175,7 +175,7 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
     "password": "teste"
 }
 ```
-    - **response return**
+   - **response return**
 ```json
 {
     "name": "teste",
@@ -190,7 +190,7 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ```json
 null
 ```
-    - **response return**
+   - **response return**
 ```json
 [
     {
@@ -212,7 +212,7 @@ null
 ```json
 null
 ```
-    - **response return**
+   - **response return**
 ```json
     {
         "_id": "67255cb0b132b989883ef7d7",
@@ -230,7 +230,7 @@ null
     "__v": 0
 }
 ```
-    - **response return**
+   - **response return**
 ```json
 {
     "name": "teste1",
