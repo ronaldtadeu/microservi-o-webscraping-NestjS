@@ -130,14 +130,14 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 - **POST** `/users`: Cria um novo usuário.
 
 - - **form-data**
-```
+```json
 {
     "name": "teste",
     "password": "teste"
 }
 ```
 - - **response return**
-```
+```json
 {
     "name": "teste",
     "password": "teste",
@@ -148,11 +148,11 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 
 - **GET** `/users/`: Lista os usuários.
 - - **form-data**
-```
+```json
 null
 ```
 - - **response return**
-```
+```json
 [
     {
         "_id": "67255cb0b132b989883ef7d7",
@@ -169,11 +169,11 @@ null
 ```
 - **GET** `/users/:id`: Lista o usuário pelo id.
 - - **form-data**
-```
+```json
 null
 ```
 - - **response return**
-```
+```json
     {
         "_id": "67255cb0b132b989883ef7d7",
         "name": "John Doe",
@@ -183,40 +183,19 @@ null
 - **DELETE** `/users/:id`: Exclui o usuário pelo id.
 - **PUT** `/users/:id`: Edita o usuário pelo id.
 - - **form-data**
-```
+```json
 {
     "name": "teste1",
     "password": "teste1"
 }
 ```
 - - **response return**
-```
+```json
 {
     "name": "teste1",
     "password": "teste1",
     "_id": "67269064413c64e3e64f54cb",
     "__v": 0
-}
-```
-
-### Exemplo de Uso
-
-Para realizar o scraping e obter o produto mais caro, você pode fazer uma requisição GET para:
-
-```
-http://localhost:3000/scrape/most-expensive-product
-```
-
-E para criar um novo usuário, você pode enviar um objeto JSON com os dados do usuário para:
-
-```
-POST http://localhost:3000/users
-```
-
-```json
-{
-  "name": "Nome do Usuário",
-  "price": 19.99
 }
 ```
 
