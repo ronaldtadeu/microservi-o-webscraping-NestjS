@@ -129,14 +129,14 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ### Rota de Usuários
 - **POST** `/users`: Cria um novo usuário.
 
-- - **form-data**
+    - **form-data**
 ```json
 {
     "name": "teste",
     "password": "teste"
 }
 ```
-- - **response return**
+    - **response return**
 ```json
 {
     "name": "teste",
@@ -147,17 +147,18 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ```
 
 - **GET** `/users/`: Lista os usuários.
-- - **form-data**
+    - **form-data**
 ```json
 null
 ```
-- - **response return**
+    - **response return**
 ```json
 [
     {
         "_id": "67255cb0b132b989883ef7d7",
         "name": "John Doe",
-        "password": "securepassword"
+        "password": "securepassword",
+        "__v": 0
     },
     {
         "_id": "67269064413c64e3e64f54cb",
@@ -168,7 +169,7 @@ null
 ]
 ```
 - **GET** `/users/:id`: Lista o usuário pelo id.
-- - **form-data**
+    - **form-data**
 ```json
 null
 ```
@@ -182,14 +183,15 @@ null
 ```
 - **DELETE** `/users/:id`: Exclui o usuário pelo id.
 - **PUT** `/users/:id`: Edita o usuário pelo id.
-- - **form-data**
+    - **form-data**
 ```json
 {
     "name": "teste1",
-    "password": "teste1"
+    "password": "teste1",
+    "__v": 0
 }
 ```
-- - **response return**
+    - **response return**
 ```json
 {
     "name": "teste1",
