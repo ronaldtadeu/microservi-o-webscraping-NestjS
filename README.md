@@ -124,10 +124,32 @@ microserviço-webscraping-NestjS\README.md       # Documentação do projeto.
 ## Requisições
 
 ### Rota de Scraping
-- **GET** `/scrape/most-expensive-product`: Retorna o produto mais caro e o produto mais barato da página de produtos.
+- **GET** `/scrape/product`: Retorna todos os produtos, o mais caro e o mais barato da página de produtos.
 
 ### Rota de Usuários
 - **POST** `/users`: Cria um novo usuário.
+
+- - **form-data**
+```
+{
+    "name": "teste",
+    "password": "teste"
+}
+```
+- - **response return**
+```
+{
+    "name": "teste",
+    "password": "teste",
+    "_id": "67269064413c64e3e64f54cb",
+    "__v": 0
+}
+```
+
+- **GET** `/users/`: Lista os usuários.
+- **GET** `/users/:id`: Lista o usuário pelo id.
+- **DELETE** `/users/:id`: Exclui o usuário pelo id.
+- **PUT** `/users/:id`: Edita o usuário pelo id.
 
 ### Exemplo de Uso
 
