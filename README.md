@@ -52,8 +52,7 @@ Cada microserviço possui sua própria documentação Swagger.
 
 ### Microserviço de Usuários
 
-- **User service ENDPOINT**: `http://localhost:3000/`
-- **User service ENDPOINT**: `http://localhost:3001/`
+- **ENDPOINT**: `http://localhost:3000/`
 
 - **Rota**: `POST /users`
   - **Descrição**: Cria um novo usuário.
@@ -86,6 +85,8 @@ Cada microserviço possui sua própria documentação Swagger.
     ```
 
 ### Microserviço de Scraping
+
+- **ENDPOINT**: `http://localhost:3001/`
 
 - **Rota**: `POST /scrape/product`
   - **Descrição**: Realiza login e scraping de produtos.
