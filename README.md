@@ -52,8 +52,8 @@ Cada microserviço possui sua própria documentação Swagger.
 
 ### Microserviço de Usuários
 
-**User service ENDPOINT**: `http://localhost:3000/`
-**User service ENDPOINT**: `http://localhost:3001/`
+- **User service ENDPOINT**: `http://localhost:3000/`
+- **User service ENDPOINT**: `http://localhost:3001/`
 
 - **Rota**: `POST /users`
   - **Descrição**: Cria um novo usuário.
