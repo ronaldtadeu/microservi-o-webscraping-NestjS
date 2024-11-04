@@ -27,7 +27,7 @@ Essa separação permite uma escalabilidade independente de cada serviço, além
    npm install
    ```
    ```bash
-   cd scraping-service
+   cd puppeteer-service
    npm install
    ```
 3. Para iniciar cada microserviço, entre na pasta correspondente e execute o comando de inicialização:
@@ -36,7 +36,7 @@ Essa separação permite uma escalabilidade independente de cada serviço, além
    npm run start
    ```
    ```bash
-   cd scraping-service
+   cd puppeteer-service
    npm run start
    ```
 4. A API estará disponível nas portas definidas em cada microserviço.
