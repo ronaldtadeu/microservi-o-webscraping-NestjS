@@ -23,20 +23,20 @@ Essa separação permite uma escalabilidade independente de cada serviço, além
 1. Clone o repositório para o seu ambiente local.
 2. Acesse a pasta de cada microserviço e instale as dependências:
    ```bash
-   cd user-microservice
+   cd user-service
    npm install
    ```
    ```bash
-   cd scraping-microservice
+   cd scraping-service
    npm install
    ```
 3. Para iniciar cada microserviço, entre na pasta correspondente e execute o comando de inicialização:
    ```bash
-   cd user-microservice
+   cd user-service
    npm run start
    ```
    ```bash
-   cd scraping-microservice
+   cd scraping-service
    npm run start
    ```
 4. A API estará disponível nas portas definidas em cada microserviço.
@@ -45,12 +45,15 @@ Essa separação permite uma escalabilidade independente de cada serviço, além
 
 Cada microserviço possui sua própria documentação Swagger.
 
-- **User Microservice**: Após iniciar o serviço, acesse `http://localhost:<porta_user>/api` para visualizar a documentação.
-- **Scraping Microservice**: Após iniciar o serviço, acesse `http://localhost:<porta_scraping>/api` para visualizar a documentação.
+- **User service**: Após iniciar o serviço, acesse `http://localhost:3000/api` para visualizar a documentação.
+- **Scraping service**: Após iniciar o serviço, acesse `http://localhost:3001/api` para visualizar a documentação.
 
 ## Rotas das APIs
 
 ### Microserviço de Usuários
+
+**User service ENDPOINT**: `http://localhost:3000/`
+**User service ENDPOINT**: `http://localhost:3001/`
 
 - **Rota**: `POST /users`
   - **Descrição**: Cria um novo usuário.
@@ -131,7 +134,7 @@ Cada microserviço possui sua própria documentação Swagger.
 
 ## Testes Unitários
 
-Para rodar os testes unitários (caso implementados), navegue até a pasta do microserviço e execute:
+Para rodar os testes unitários, navegue até a pasta do microserviço e execute:
 ```bash
 npm run test
 ```
