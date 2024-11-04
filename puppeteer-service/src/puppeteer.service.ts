@@ -4,24 +4,21 @@ import * as puppeteer from 'puppeteer';
 @Injectable()
 export class PuppeteerService {
   async scrapeAndSaveProduct(username: string, password: string) {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    // Adiciona um manipulador para fechar automaticamente qualquer diálogo que apareça
     page.on('dialog', async dialog => {
       console.log('Alerta detectado:', dialog.message());
-      await dialog.dismiss(); // Fecha o alerta automaticamente
+      await dialog.dismiss();
     });
 
     try {
       await page.goto('https://www.saucedemo.com/', { waitUntil: 'networkidle2' });
 
-      // Realiza o login
       await page.type('#user-name', username);
       await page.type('#password', password);
       await page.click('#login-button');
 
-      // Aguarde o seletor específico da página de produtos ou um possível erro
       const loginError = await page.waitForSelector('.error-message-container', { timeout: 5000 }).catch(() => null);
 
       if (loginError) {
@@ -29,10 +26,8 @@ export class PuppeteerService {
         return this.handleLoginError(username, errorMessage);
       }
 
-      // Aguarde o carregamento da lista de produtos
       await page.waitForSelector('.inventory_list', { timeout: 60000 });
 
-      // Extraia todos os produtos
       const products = await page.$$eval('.inventory_item', items => {
         return items.map(item => ({
           name: item.querySelector('.inventory_item_name').textContent,
@@ -40,21 +35,65 @@ export class PuppeteerService {
         }));
       });
 
-      // Encontra o produto mais caro
       const mostExpensiveProduct = products.reduce((prev, current) => (prev.price > current.price) ? prev : current);
-
-      // Encontra o produto mais barato
       const cheapestProduct = products.reduce((prev, current) => (prev.price < current.price) ? prev : current);
 
       return {
-        products,             // Retorna todos os produtos
-        mostExpensiveProduct, // Retorna o produto mais caro
-        cheapestProduct       // Retorna o produto mais barato
+        products,
+        mostExpensiveProduct,
+        cheapestProduct,
       };
-
     } catch (error) {
       console.error('Erro durante o scraping:', error);
       return { error: 'Erro ao buscar os produtos' };
+    } finally {
+      await browser.close();
+    }
+  }
+
+  async tryLogin(username: string, password: string) {
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+
+    page.on('dialog', async dialog => {
+      console.log('Alerta detectado:', dialog.message());
+      await dialog.dismiss();
+    });
+
+    try {
+      await page.goto('https://www.saucedemo.com/', { waitUntil: 'networkidle2' });
+
+      await page.type('#user-name', username);
+      await page.type('#password', password);
+      await page.click('#login-button');
+
+      const loginError = await page.waitForSelector('.error-message-container', { timeout: 5000 }).catch(() => null);
+
+      if (loginError) {
+        const errorMessage = await loginError.evaluate(el => el.textContent);
+        return this.handleLoginError(username, errorMessage);
+      }
+
+      await page.waitForSelector('.inventory_list', { timeout: 60000 });
+
+      const products = await page.$$eval('.inventory_item', items => {
+        return items.map(item => ({
+          name: item.querySelector('.inventory_item_name').textContent,
+          price: parseFloat(item.querySelector('.inventory_item_price').textContent.replace('$', '')),
+        }));
+      });
+
+      const mostExpensiveProduct = products.reduce((prev, current) => (prev.price > current.price ? prev : current));
+
+      return {
+        success: true,
+        message: `Login successful for user ${username}.`,
+        mostExpensiveProduct, 
+      };
+
+    } catch (error) {
+      console.error(`Erro durante o login para o usuário ${username}:`, error);
+      return { success: false, message: `Erro ao tentar login para o usuário ${username}.` };
     } finally {
       await browser.close();
     }
