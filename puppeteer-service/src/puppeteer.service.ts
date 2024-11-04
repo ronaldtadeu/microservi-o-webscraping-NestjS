@@ -52,7 +52,7 @@ export class PuppeteerService {
   }
 
   async tryLogin(username: string, password: string) {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     page.on('dialog', async dialog => {
